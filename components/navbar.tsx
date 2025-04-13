@@ -8,8 +8,10 @@ import { Menu, X } from "lucide-react"
 const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
+  { name: "Resume", href: "#resume" },
   { name: "Blog", href: "#blog" },
   { name: "Contact", href: "#contact" },
 ]
@@ -43,7 +45,7 @@ export default function Navbar() {
               document.querySelector("#home")?.scrollIntoView({ behavior: "smooth" })
             }}
           >
-            Abdullah Azher
+            Abdullah Azher Chaudhary
           </a>
 
           {/* Desktop Navigation */}
