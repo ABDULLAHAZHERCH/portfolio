@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base theme variables */
+@layer base {
+  :root {
+    /* Default theme (Blue) */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+
+  /* Ocean Theme (Teal/Blue) */
+  .theme-ocean:root {
+    --primary: 199 89% 48%;
+    --primary-foreground: 210 40% 98%;
+    --ring: 199 89% 48%;
+  }
+
+  .theme-ocean.dark {
+    --primary: 199 89% 60%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --ring: 199 89% 60%;
+  }
+
+  /* Forest Theme (Green) */
+  .theme-forest:root {
+    --primary: 142 76% 36%;
+    --primary-foreground: 210 40% 98%;
+    --ring: 142 76% 36%;
+  }
+
+  .theme-forest.dark {
+    --primary: 142 76% 45%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --ring: 142 76% 45%;
+  }
+
+  /* Sunset Theme (Orange/Red) */
+  .theme-sunset:root {
+    --primary: 24 95% 53%;
+    --primary-foreground: 210 40% 98%;
+    --ring: 24 95% 53%;
+  }
+
+  .theme-sunset.dark {
+    --primary: 24 95% 65%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --ring: 24 95% 65%;
+  }
+
+  /* Lavender Theme (Purple) */
+  .theme-lavender:root {
+    --primary: 270 76% 53%;
+    --primary-foreground: 210 40% 98%;
+    --ring: 270 76% 53%;
+  }
+
+  .theme-lavender.dark {
+    --primary: 270 76% 65%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --ring: 270 76% 65%;
+  }
+
+  /* Monochrome Theme (Grayscale) */
+  .theme-monochrome:root {
+    --primary: 240 5% 34%;
+    --primary-foreground: 0 0% 98%;
+    --ring: 240 5% 34%;
+  }
+
+  .theme-monochrome.dark {
+    --primary: 240 5% 65%;
+    --primary-foreground: 240 10% 3.9%;
+    --ring: 240 5% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+}
+
+/* Theme color swatches */
+.theme-default-swatch {
+  background: hsl(221.2 83.2% 53.3%);
+}
+
+.theme-ocean-swatch {
+  background: hsl(199 89% 48%);
+}
+
+.theme-forest-swatch {
+  background: hsl(142 76% 36%);
+}
+
+.theme-sunset-swatch {
+  background: hsl(24 95% 53%);
+}
+
+.theme-lavender-swatch {
+  background: hsl(270 76% 53%);
+}
+
+.theme-monochrome-swatch {
+  background: hsl(240 5% 34%);
+}
+
+/* Theme previews */
+.theme-preview {
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-preview::before,
+.theme-preview::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.theme-preview::before {
+  width: 100px;
+  height: 100px;
+  top: -20px;
+  left: -20px;
+  opacity: 0.7;
+}
+
+.theme-preview::after {
+  width: 80px;
+  height: 80px;
+  bottom: -20px;
+  right: -20px;
+  opacity: 0.5;
+}
+
+.theme-default-preview {
+  background: linear-gradient(135deg, hsl(210 40% 96.1%), hsl(214.3 31.8% 91.4%));
+}
+.theme-default-preview::before {
+  background: hsl(221.2 83.2% 53.3%);
+}
+.theme-default-preview::after {
+  background: hsl(217.2 91.2% 59.8%);
+}
+
+.theme-ocean-preview {
+  background: linear-gradient(135deg, hsl(190 50% 96.1%), hsl(200 31.8% 91.4%));
+}
+.theme-ocean-preview::before {
+  background: hsl(199 89% 48%);
+}
+.theme-ocean-preview::after {
+  background: hsl(199 89% 60%);
+}
+
+.theme-forest-preview {
+  background: linear-gradient(135deg, hsl(120 30% 96.1%), hsl(140 20% 91.4%));
+}
+.theme-forest-preview::before {
+  background: hsl(142 76% 36%);
+}
+.theme-forest-preview::after {
+  background: hsl(142 76% 45%);
+}
+
+.theme-sunset-preview {
+  background: linear-gradient(135deg, hsl(30 50% 96.1%), hsl(20 30% 91.4%));
+}
+.theme-sunset-preview::before {
+  background: hsl(24 95% 53%);
+}
+.theme-sunset-preview::after {
+  background: hsl(24 95% 65%);
+}
+
+.theme-lavender-preview {
+  background: linear-gradient(135deg, hsl(270 30% 96.1%), hsl(280 20% 91.4%));
+}
+.theme-lavender-preview::before {
+  background: hsl(270 76% 53%);
+}
+.theme-lavender-preview::after {
+  background: hsl(270 76% 65%);
+}
+
+.theme-monochrome-preview {
+  background: linear-gradient(135deg, hsl(0 0% 96.1%), hsl(0 0% 91.4%));
+}
+.theme-monochrome-preview::before {
+  background: hsl(240 5% 34%);
+}
+.theme-monochrome-preview::after {
+  background: hsl(240 5% 65%);
+}
+
+.section-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center;
+}
+
+html {
+  scroll-behavior: smooth;
+}
