@@ -1,7 +1,5 @@
 # Abdullah Azher Chaudhary – Developer Portfolio 🚀
 
-![Banner](https://abdullahch.vercel.app/Profile.png)
-
 Welcome to the source code of my **personal developer portfolio**, built with **Next.js** and **Tailwind CSS**, and deployed on **Vercel**.  
 This portfolio showcases my skills, projects, experiences, and blogs as a passionate Computer Science student and developer.
 
