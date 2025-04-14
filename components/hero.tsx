@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { ResumeDownload } from "./resume-download";
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -26,16 +27,17 @@ export default function Hero() {
             <span className="text-primary">Abdullah Azher Chaudhary</span>
           </h1>
           <h2 className="text-xl md:text-2xl mb-6 text-muted-foreground">
-            Computer Science Student at UET Lahore
+            Computer Scientist - Developer
           </h2>
           <p className="text-lg mb-8 max-w-lg">
             Passionate about AI, development, cybersecurity, and programming.
             Building innovative solutions to real-world problems.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button onClick={scrollToContact} size="lg">
+            {/* <Button onClick={scrollToContact} size="lg">
               Get in Touch
-            </Button>
+            </Button> */}
+            <ResumeDownload showPreview={false} />
             <Button variant="outline" size="lg" asChild>
               <a href="#projects">View My Work</a>
             </Button>

@@ -43,7 +43,11 @@ const resumeFormats: ResumeFormat[] = [
   },
 ]
 
-export function ResumeDownload() {
+interface ResumeDownloadProps {
+  showPreview?: boolean;
+}
+
+export function ResumeDownload({ showPreview = true }: ResumeDownloadProps) {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false)
 
   return (
@@ -52,7 +56,7 @@ export function ResumeDownload() {
         <DropdownMenuTrigger asChild>
           <Button className="flex items-center gap-2">
             <Download className="h-4 w-4" />
-            Download Resume
+            Resume
             <ChevronDown className="h-4 w-4 ml-1" />
           </Button>
         </DropdownMenuTrigger>
@@ -74,23 +78,25 @@ export function ResumeDownload() {
         </DropdownMenuContent>
       </DropdownMenu>
 
-      <Dialog open={isPreviewOpen} onOpenChange={setIsPreviewOpen}>
-        <DialogTrigger asChild>
-          <Button variant="outline" className="flex items-center gap-2">
-            <Eye className="h-4 w-4" />
-            Preview Resume
-          </Button>
-        </DialogTrigger>
-        <DialogContent className="max-w-4xl h-[80vh]">
-          <DialogHeader>
-            <DialogTitle>Resume Preview</DialogTitle>
-            <DialogDescription>Preview your resume before downloading</DialogDescription>
-          </DialogHeader>
-          <div className="flex-1 overflow-auto mt-4">
-            <iframe src="/resume/resume.pdf" className="w-full h-[60vh]" />
-          </div>
-        </DialogContent>
-      </Dialog>
+      {showPreview && (
+        <Dialog open={isPreviewOpen} onOpenChange={setIsPreviewOpen}>
+          <DialogTrigger asChild>
+        <Button variant="outline" className="flex items-center gap-2">
+          <Eye className="h-4 w-4" />
+          Preview Resume
+        </Button>
+          </DialogTrigger>
+          <DialogContent className="max-w-4xl h-[80vh]">
+        <DialogHeader>
+          <DialogTitle>Resume Preview</DialogTitle>
+          <DialogDescription>Preview your resume before downloading</DialogDescription>
+        </DialogHeader>
+        <div className="flex-1 overflow-auto mt-4">
+          <iframe src="/resume/resume.pdf" className="w-full h-[60vh]" />
+        </div>
+          </DialogContent>
+        </Dialog>
+      )}
     </div>
   )
 }
