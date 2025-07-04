@@ -81,7 +81,7 @@ export function ResumeDownload({ showPreview = true }: ResumeDownloadProps) {
             <DropdownMenuItem key={format.name} asChild>
               <a
                 href={format.path}
-                download={`abdullah_azher_ch_${format.name}.${
+                download={`abdullah_azher_ch_${format.name.toLowerCase()}.${
                   format.extension
                 }`}
                 className="flex items-center gap-2 cursor-pointer"
