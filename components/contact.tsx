@@ -2,7 +2,7 @@
 
 import type React from "react";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -18,6 +18,29 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [alert, setAlert] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
+  const [progress, setProgress] = useState(100);
+
+  useEffect(() => {
+    if (alert) {
+      setProgress(100);
+      const interval = setInterval(() => {
+        setProgress((prev) => (prev > 0 ? prev - 2 : 0));
+      }, 100);
+      const timeout = setTimeout(() => {
+        setAlert(null);
+        setProgress(100);
+      }, 5000);
+      return () => {
+        clearTimeout(timeout);
+        clearInterval(interval);
+      };
+    }
+  }, [alert]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -28,12 +51,9 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend or email service
-    // Import at the top of the file
-
-    // In handleSubmit function:
+    setLoading(true);
+    setAlert(null);
     try {
-      // Format the message content with HTML
       const messageContent = `
         <h2>Contact Form Submission</h2>
         <p><strong>Name:</strong> ${formData.name}</p>
@@ -42,27 +62,28 @@ export default function Contact() {
         <p><strong>Message:</strong></p>
         <p>${formData.message}</p>
       `;
-
-      // Send the email to your address
       await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          name: formData.name,
           email: formData.email,
           subject: formData.subject,
           message: messageContent,
         }),
       });
+      setAlert({
+        type: "success",
+        message: "Message sent! Thank you for reaching out.",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
-      console.error("Failed to send email:", error);
-      alert("Failed to send message. Please try again later.");
-      return;
+      setAlert({
+        type: "error",
+        message: "Failed to send message. Please try again later.",
+      });
     }
-    console.log("Form submitted:", formData);
-    // Reset form after submission
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    // Show success message (in a real app)
-    alert("Message sent successfully!");
+    setLoading(false);
   };
 
   return (
@@ -171,6 +192,25 @@ export default function Contact() {
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
+                {alert && (
+                  <div
+                    className={`mb-4 p-3 rounded text-sm font-medium border relative overflow-hidden ${
+                      alert.type === "success"
+                        ? "bg-green-100 text-green-800 border-green-200"
+                        : "bg-red-100 text-red-800 border-red-200"
+                    }`}
+                  >
+                    {alert.message}
+                    <div
+                      className="absolute left-0 bottom-0 h-1 transition-all duration-100 linear"
+                      style={{
+                        width: `${progress}%`,
+                        backgroundColor:
+                          alert.type === "success" ? "#22c55e" : "#ef4444",
+                      }}
+                    />
+                  </div>
+                )}
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <Input
@@ -212,8 +252,15 @@ export default function Contact() {
                       required
                     />
                   </div>
-                  <Button type="submit" className="w-full">
-                    Send Message
+                  <Button type="submit" className="w-full" disabled={loading}>
+                    {loading ? (
+                      <>
+                        <span className="inline-block w-4 h-4 mr-2 align-middle border-2 border-t-2 border-t-transparent border-gray-400 rounded-full animate-spin"></span>
+                        Sending...
+                      </>
+                    ) : (
+                      "Send Message"
+                    )}
                   </Button>
                 </form>
               </CardContent>

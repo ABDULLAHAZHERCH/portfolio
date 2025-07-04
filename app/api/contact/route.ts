@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import sendEmail from "@/lib/sendEmail";
+import sendEmail, { sendContactEmails } from "@/lib/sendEmail";
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, subject, message } = await req.json();
+    const { name, email, subject, message } = await req.json();
 
-    const info = await sendEmail({ email, subject, message });
+    const info = await sendContactEmails({ name, email, subject, message });
 
     return NextResponse.json({ success: true, info });
   } catch (error) {

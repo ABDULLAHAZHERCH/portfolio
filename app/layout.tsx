@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import SmoothScroll from "./smooth-scroll";
-import { FloatingThemeSwitcher } from "@/components/floating-theme-switcher";
+// import { FloatingThemeSwitcher } from "@/components/floating-theme-switcher";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,7 +48,7 @@ export default function RootLayout({
             <Navbar />
             <div className="flex-1">{children}</div>
             <Footer />
-            <FloatingThemeSwitcher />
+            {/* <FloatingThemeSwitcher /> */}
           </div>
         </ThemeProvider>
       </body>
