@@ -20,6 +20,7 @@ export const metadata = {
   },
   keywords: [
     "Abdullah Azher Chaudhary",
+    "abdullah azher chaudhary",
     "Developer Portfolio",
     "UET Lahore",
     "AI",
@@ -32,6 +33,10 @@ export const metadata = {
   authors: [{ name: "Abdullah Azher Chaudhary" }],
   creator: "Abdullah Azher Chaudhary",
   applicationName: "Abdullah's Developer Portfolio",
+  metadataBase: new URL("https://abdullahch.vercel.app"),
+  alternates: {
+    canonical: "https://abdullahch.vercel.app/",
+  },
 };
 
 export default function RootLayout({
@@ -51,6 +56,19 @@ export default function RootLayout({
             {/* <FloatingThemeSwitcher /> */}
           </div>
         </ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Abdullah Azher Chaudhary",
+              url: "https://abdullahch.vercel.app/",
+              description:
+                "Computer Scientist and Developer specializing in AI, Web Development, Cybersecurity, and Programming.",
+            }),
+          }}
+        />
       </body>
     </html>
   );
