@@ -182,7 +182,7 @@ export default function Hero() {
             transition={{ duration: 3, repeat: Infinity }}
           >
             <Image
-              src="/Profile.png"
+              src="/Abdullah_Azher_Chaudhary.avif"
               alt="Abdullah Azher Chaudhary"
               fill
               className="object-cover"

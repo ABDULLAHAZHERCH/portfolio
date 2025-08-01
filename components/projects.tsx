@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Card,
@@ -11,58 +10,14 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, ChevronDown, ArrowRight } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 import { projects } from "../lib/projects";
 
-type ProjectCategory =
-  | "All"
-  | "AI"
-  | "Web"
-  | "Data Science"
-  | "Systems Programming"
-  | "Software"
-  | "Networking"
-  | "Desktop Tools"
-  | "Database"
-  | "Software Customization"
-  | "Information Security"
-  | "Desktop Application";
-
-const categories: ProjectCategory[] = [
-  "All",
-  "AI",
-  "Web",
-  "Data Science",
-  "Systems Programming",
-  "Software",
-  "Networking",
-  "Desktop Tools",
-  "Database",
-  "Software Customization",
-  "Information Security",
-];
-
 export default function Projects() {
-  const [activeCategory, setActiveCategory] = useState<ProjectCategory>("All");
-
-  const filteredProjects = projects.filter(
-    (project) => activeCategory === "All" || project.category === activeCategory
-  );
-
   // Show only first 3 projects
-  const displayedProjects = filteredProjects.slice(0, 3);
-
-  // Show first 4 categories and put the rest in dropdown
-  const visibleCategories = categories.slice(0, 4);
-  const dropdownCategories = categories.slice(4);
+  const displayedProjects = projects.slice(0, 3);
 
   return (
     <section id="projects" className="py-16 md:py-24">
@@ -76,46 +31,6 @@ export default function Projects() {
         >
           My Projects
         </motion.h2>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-2 mb-12"
-        >
-          {visibleCategories.map((category) => (
-            <Button
-              key={category}
-              variant={activeCategory === category ? "default" : "outline"}
-              onClick={() => setActiveCategory(category)}
-              className="mb-2"
-            >
-              {category}
-            </Button>
-          ))}
-
-          {dropdownCategories.length > 0 && (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="mb-2">
-                  More <ChevronDown className="ml-2 h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                {dropdownCategories.map((category) => (
-                  <DropdownMenuItem
-                    key={category}
-                    onClick={() => setActiveCategory(category)}
-                    className={activeCategory === category ? "bg-accent" : ""}
-                  >
-                    {category}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          )}
-        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayedProjects.map((project, index) => (

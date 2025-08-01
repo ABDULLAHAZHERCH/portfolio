@@ -7,7 +7,13 @@ import Footer from "@/components/footer";
 import SmoothScroll from "./smooth-scroll";
 // import { FloatingThemeSwitcher } from "@/components/floating-theme-switcher";
 
-const inter = Inter({ subsets: ["latin"] });
+// Optimize font loading
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap', // Improves font loading performance
+  preload: true,
+  fallback: ['system-ui', 'arial']
+});
 
 export const metadata = {
   title: "Abdullah Azher Chaudhary | Portfolio",
@@ -46,6 +52,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Preload critical resources */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider defaultTheme="system" defaultColorTheme="default">
           <div className="flex min-h-screen flex-col">
@@ -69,9 +81,8 @@ export default function RootLayout({
             }),
           }}
         />
+        
       </body>
     </html>
   );
 }
-
-import "./globals.css";
