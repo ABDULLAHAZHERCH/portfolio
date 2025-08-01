@@ -186,7 +186,7 @@ export default function Hero() {
               alt="Abdullah Azher Chaudhary"
               fill
               className="object-cover"
-              priority = {true}
+              priority
             />
           </motion.div>
         </motion.div>

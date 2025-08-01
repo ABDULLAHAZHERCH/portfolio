@@ -4,7 +4,7 @@ export async function GET() {
   const baseUrl = 'https://abdullahch.vercel.app';
   const pages = [
     '', // homepage
-    // Add more paths here as your site grows
+    'projects', // projects page
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
