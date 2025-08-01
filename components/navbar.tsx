@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeSwitcher } from "./theme-switcher";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -20,6 +22,8 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isMainPage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +33,16 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (href: string) => {
+    if (isMainPage) {
+      // On main page, use smooth scroll to section
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // On other pages, navigate to main page with hash
+      window.location.href = `/${href}`;
+    }
+  };
 
   return (
     <header
@@ -45,9 +59,7 @@ export default function Navbar() {
             className="text-xl font-bold transition-colors hover:text-primary"
             onClick={(e) => {
               e.preventDefault();
-              document
-                .querySelector("#home")
-                ?.scrollIntoView({ behavior: "smooth" });
+              handleNavClick("#home");
             }}
           >
             Abdullah Azher Chaudhary
@@ -62,9 +74,7 @@ export default function Navbar() {
                 className="text-sm font-medium transition-colors hover:text-primary"
                 onClick={(e) => {
                   e.preventDefault();
-                  document
-                    .querySelector(link.href)
-                    ?.scrollIntoView({ behavior: "smooth" });
+                  handleNavClick(link.href);
                 }}
               >
                 {link.name}
@@ -99,9 +109,7 @@ export default function Navbar() {
                 className="block py-2 text-base font-medium transition-colors hover:text-primary"
                 onClick={(e) => {
                   e.preventDefault();
-                  document
-                    .querySelector(link.href)
-                    ?.scrollIntoView({ behavior: "smooth" });
+                  handleNavClick(link.href);
                   setIsOpen(false);
                 }}
               >

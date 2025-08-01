@@ -186,7 +186,7 @@ export default function Hero() {
               alt="Abdullah Azher Chaudhary"
               fill
               className="object-cover"
-              priority
+              priority = {true}
             />
           </motion.div>
         </motion.div>
@@ -224,14 +224,3 @@ export default function Hero() {
     </section>
   );
 }
-
-/* Add this to your global CSS or Tailwind config for the gradient shimmer effect:
-.animate-gradient-move {
-  background-size: 200% 200%;
-  animation: gradient-move 3s ease-in-out infinite alternate;
-}
-@keyframes gradient-move {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-*/

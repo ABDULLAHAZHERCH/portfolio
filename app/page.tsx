@@ -3,8 +3,8 @@ import About from "@/components/about";
 import Projects from "@/components/projects";
 import Experience from "@/components/experience";
 import Education from "@/components/education";
-import Blog from "@/components/blog";
 import Contact from "@/components/contact";
+import Blog from "@/components/blog";
 import ResumeSection from "@/components/resume-section";
 import Skills from "@/components/skills";
 
