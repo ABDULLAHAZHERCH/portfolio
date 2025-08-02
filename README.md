@@ -12,7 +12,6 @@ This portfolio showcases my skills, projects, experiences, and blogs as a passio
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Markdown Blog**: (Planned / In Progress – using Notion or Sanity)
 
 ---
 
