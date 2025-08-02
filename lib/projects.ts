@@ -3,15 +3,26 @@ export const projects = [
     id: 1,
     title: "Developer Portfolio",
     description:
-      "Modern, responsive developer portfolio built with Next.js and Tailwind CSS.",
+      "A dynamic and performant digital resume, meticulously crafted with Next.js and Tailwind CSS to create a memorable first impression and effectively showcase my software development capabilities.",
     image: "/placeholder.svg?height=300&width=500",
     category: "Web",
-    tags: ["Next.js", "Tailwind CSS", "React"],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     githubUrl: "https://github.com/ABDULLAHAZHERCH/portfolio",
     liveUrl: "https://abdullahch.vercel.app/",
   },
   {
     id: 2,
+    title: "SASol - A&S Launchpad",
+    description:
+      "A bespoke digital platform designed to be the primary catalyst for our business growth. It translates our technical skills into a compelling narrative that engages potential clients and converts interest into partnership opportunities.",
+    image: "/project-showcase.png",
+    category: "Web",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    githubUrl: "https://github.com/ABDULLAHAZHERCH/a-s", 
+    liveUrl: "https://sasol.vercel.app/",
+  },
+  {
+    id: 3,
     title: "Staff-Flow",
     description:
       "An AI-powered employee shift and workload management system designed to optimize team scheduling, track availability, and balance workloads using intelligent algorithms.",
@@ -29,7 +40,7 @@ export const projects = [
     liveUrl: "https://v0-staff-flowmain-2i.vercel.app/",
   },
   {
-    id: 3,
+    id: 4,
     title: "Slide Architect",
     description:
       "AI-powered tool for generating slide decks from a single prompt using Gemini. Offers advanced editing and export to PNG, PDF, and PPTX.",
@@ -49,7 +60,7 @@ export const projects = [
     liveUrl: "#",
   },
   {
-    id: 4,
+    id: 5,
     title: "University Learning Management System",
     description:
       "Full-stack LMS platform developed using Next.js for frontend with authentication and role-based access.",
@@ -60,7 +71,7 @@ export const projects = [
     liveUrl: "https://ulms-client.vercel.app/",
   },
   {
-    id: 5,
+    id: 6,
     title: "Optical Character Recognition",
     description:
       "A web application built with Streamlit to demonstrate Optical Character Recognition (OCR) capabilities using the Tesseract engine. Users can upload images, preprocess them, and extract text with bounding box visualization.",
@@ -72,7 +83,7 @@ export const projects = [
     liveUrl: "",
   },
   {
-    id: 6,
+    id: 7,
     title: "Network Optimized SMTP Server",
     description:
       "A Python-based SMTP server designed for secure, efficient, and user-friendly email communication with optimized network handling and basic authentication.",
@@ -90,7 +101,7 @@ export const projects = [
     liveUrl: "#",
   },
   {
-    id: 7,
+    id: 8,
     title: "Mini Operating System",
     description:
       "A simplified operating system developed in C that supports basic command execution, memory management, and process scheduling.",
@@ -101,7 +112,7 @@ export const projects = [
     liveUrl: "#",
   },
   {
-    id: 8,
+    id: 9,
     title: "Mini Excel",
     description:
       "A basic version of Excel built in C++ using linked list structures to manage cell data, perform arithmetic operations, and mimic spreadsheet functionality.",
@@ -112,7 +123,7 @@ export const projects = [
     liveUrl: "#",
   },
   {
-    id: 9,
+    id: 10,
     title: "DOS Shell",
     description:
       "A minimal MS-DOS/CMD clone developed in C++ that supports basic shell commands, file operations, and directory management.",
@@ -123,7 +134,7 @@ export const projects = [
     liveUrl: "#",
   },
   {
-    id: 10,
+    id: 11,
     title: "CoviDetect",
     description:
       "AI-powered COVID-19 detection system using chest X-rays and deep learning models.",
@@ -134,7 +145,7 @@ export const projects = [
     liveUrl: "#",
   },
   {
-    id: 11,
+    id: 12,
     title: "Elderly Care Chatbot",
     description:
       "Personalized chatbot for elderly care using natural language processing and machine learning.",
@@ -145,7 +156,7 @@ export const projects = [
     liveUrl: "#",
   },
   {
-    id: 12,
+    id: 13,
     title: "HIV Incidence Prediction",
     description:
       "Data science project to predict HIV incidence rates using demographic and healthcare data.",
@@ -157,7 +168,7 @@ export const projects = [
   },
 
   {
-    id: 13,
+    id: 14,
     title: "Car Sales Management System",
     description:
       "A desktop-based system for managing car sales data, generating sales reports and trends.",
@@ -168,7 +179,7 @@ export const projects = [
     liveUrl: "#",
   },
   {
-    id: 14,
+    id: 15,
     title: "CLO Management System",
     description:
       "A C#-based desktop application with database integration to manage Course Learning Outcomes (CLOs), map them with Program Learning Outcomes (PLOs), and record assessment results for academic performance evaluation.",
@@ -179,7 +190,7 @@ export const projects = [
     liveUrl: "#",
   },
   {
-    id: 15,
+    id: 16,
     title: "Summa WinPlot Illustrator Plugin",
     description:
       "Adobe Illustrator plugin for WinPlot integration to manage file output with registration mark support.",
@@ -190,7 +201,7 @@ export const projects = [
     liveUrl: "#",
   },
   {
-    id: 16,
+    id: 17,
     title: "Customized Kinovea for Client-Specific Sports Analysis",
     description:
       "Tailored the open-source Kinovea motion analysis software to meet a client's unique sports performance tracking needs. Implemented custom measurement tools, improved user interface components, and optimized video processing for smoother playback and annotation.",
@@ -207,7 +218,7 @@ export const projects = [
     liveUrl: "#",
   },
   {
-    id: 17,
+    id: 18,
     title: "Financial Fraud Management System (FFMS)",
     description:
       "A database-driven system designed to detect and prevent fraudulent activities in both digital and traditional financial transactions. Utilizes a rule-based engine to flag suspicious patterns and provides analysts with a real-time dashboard for monitoring threats.",
@@ -226,7 +237,7 @@ export const projects = [
     liveUrl: "#",
   },
   {
-    id: 18,
+    id: 19,
     title: "Secure MNIST Classifier with Zero Trust Architecture",
     description:
       "A Python Flask-based web application that classifies handwritten digits from the MNIST dataset. The system is secured using Zero Trust Architecture principles, including strict identity verification, microsegmentation, and minimal trust boundaries to prevent unauthorized access.",
