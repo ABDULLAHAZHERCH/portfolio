@@ -7,6 +7,7 @@ import Footer from "@/components/footer";
 import SmoothScroll from "./smooth-scroll";
 // import { FloatingThemeSwitcher } from "@/components/floating-theme-switcher";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
 
 // Optimize font loading
 const inter = Inter({ 
@@ -83,6 +84,7 @@ export default function RootLayout({
           }}
         />
         <SpeedInsights />
+        <Analytics/>
       </body>
     </html>
   );
